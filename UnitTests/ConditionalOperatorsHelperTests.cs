@@ -6,27 +6,14 @@ namespace UnitTests
 {
     class ConditionalOperatorsHelperTests
     {
-        [Test]
-        public static void MathOperationAfterComparingNumbers_WhenAMoreThanB_ShouldCalculateSum()
+        [TestCase(6.5, 5, 11.5)]
+        [TestCase(5, 6.5, -1.5)]
+        [TestCase(5.5, 5.5, 30.25)]
+        public static void MathOperationAfterComparingNumbers_ShouldCalculateResult(double a, double b, double expectedResult)
         {
-            double result = MathOperationAfterComparingNumbers(5, 6.5);
+            double actualResult = MathOperationAfterComparingNumbers(a, b);
 
-            Assert.AreEqual(-1.5, result);
-        }
-
-        [Test]
-        public static void MathOperationAfterComparingNumbers_WhenALessThanB_ShouldCalculateMinus()
-        {
-            double result = MathOperationAfterComparingNumbers(5, 6.5);
-
-            Assert.AreEqual(-1.5, result);
-        }
-
-        public static void MathOperationAfterComparingNumbers_WhenAEqualB_ShouldCalculateMultiply()
-        {
-            double result = MathOperationAfterComparingNumbers(5, 6.5);
-
-            Assert.AreEqual(32.5, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestCase(1, 1, 1)]
@@ -68,10 +55,10 @@ namespace UnitTests
 
         static object[] Tuple = new[]
         {
-        new object[] { -1, 5, 0, (-1, 0, 5) },
-        new object[] { 6, 5, 4, (4, 5, 6) },
-        new object[] { -5, -7, -1, (-7, -5, -1) },
-        new object[] { 1, 1, 1, (1, 1, 1) }
+            new object[] { -1, 5, 0, (-1, 0, 5) },
+            new object[] { 6, 5, 4, (4, 5, 6) },
+            new object[] { -5, -7, -1, (-7, -5, -1) },
+            new object[] { 1, 1, 1, (1, 1, 1) }
         };
 
         [TestCaseSource(nameof(Coefficient1))]
@@ -84,9 +71,9 @@ namespace UnitTests
 
         static object[] Coefficient1 = new[]
         {
-        new object[] { 2, 4, 0, (0, -2) },
-        new object[] { 6, 0, -6, (1, -1) },
-        new object[] { 1, 0, 0, (0, 0) }
+            new object[] { 2, 4, 0, (0, -2) },
+            new object[] { 6, 0, -6, (1, -1) },
+            new object[] { 1, 0, 0, (0, 0) }
         };
 
         [TestCaseSource(nameof(Coefficient2))]
@@ -107,8 +94,8 @@ namespace UnitTests
 
         static object[] Coefficient2 = new[]
         {
-        new object[] { 1, 0, 1 },
-        new object[] { 1, -2, 3 }
+            new object[] { 1, 0, 1 },
+            new object[] { 1, -2, 3 }
         };
 
         [TestCaseSource(nameof(Coefficient3))]
@@ -129,7 +116,7 @@ namespace UnitTests
 
         static object[] Coefficient3 = new[]
         {
-        new object[] { 0, 1, 1 }
+            new object[] { 0, 1, 1 }
         };
 
         [TestCase(10, "ten")]

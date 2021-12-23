@@ -13,7 +13,6 @@ namespace UnitTests
         [TestCase(5, 3, 125)]
         public static void Exponentiate_ShouldBeCalculatedExponentiate(double number, int degree, int expectedResult)
         {
-
             double actualResult = Exponentiate(number, degree);
 
             Assert.AreEqual(expectedResult, actualResult);
@@ -33,7 +32,6 @@ namespace UnitTests
             try
             {
                 FindNumbersDivisibleByEnteredNumber(0);
-
             }
             catch (DivideByZeroException ex)
             {

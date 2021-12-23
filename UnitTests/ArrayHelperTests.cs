@@ -21,12 +21,13 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void FindMinElement_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCase(new int[] { })]
+        [TestCase(null)]
+        public static void FindMinElement_WhenArrayIsEmpty_ShouldThrowException(int[] array)
         {
             try
             {
-                FindMinElement(new int[] { });
+                FindMinElement(array);
             }
             catch (ArgumentException ex)
             {
@@ -41,7 +42,7 @@ namespace UnitTests
         {
             new object[] { new[] { -9, 5, -4, 73, 19, 0, -1, 100 }, 100 },
             new object[] { new[] { 101, 5, 9, 73, 16, 100, 10, 1 }, 101 },
-            new object[] { new[] { -5, -9, -73, 0, -19, -1, -10 }, -0 },
+            new object[] { new[] { -5, -9, -73, 0, -19, -1, -10 }, 0 },
         };
 
         [TestCaseSource(nameof(FindMaxElementSource))]
@@ -52,12 +53,13 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void FindMaxElement_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCase(new int[] { })]
+        [TestCase(null)]
+        public static void FindMaxElement_WhenArrayIsEmpty_ShouldThrowException(int[] array)
         {
             try
             {
-                FindMaxElement(new int[] { });
+                FindMaxElement(array);
             }
             catch (ArgumentException ex)
             {
@@ -83,12 +85,13 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void FindIndexMinElement_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCase(new int[] { })]
+        [TestCase(null)]
+        public static void FindIndexMinElement_WhenArrayIsEmpty_ShouldThrowException(int[] array)
         {
             try
             {
-                FindIndexMinElement(new int[] { });
+                FindIndexMinElement(array);
             }
             catch (ArgumentException ex)
             {
@@ -114,12 +117,13 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void FindIndexMaxElement_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCase(new int[] { })]
+        [TestCase(null)]
+        public static void FindIndexMaxElement_WhenArrayIsEmpty_ShouldThrowException(int[] array)
         {
             try
             {
-                FindIndexMaxElement(new int[] { });
+                FindIndexMaxElement(array);
             }
             catch (ArgumentException ex)
             {
@@ -145,12 +149,13 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void FindSumOddIndexElements_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCase(new int[] { })]
+        [TestCase(null)]
+        public static void FindSumOddIndexElements_WhenArrayIsEmpty_ShouldThrowException(int[] array)
         {
             try
             {
-                FindSumOddIndexElements(new int[] { });
+                FindSumOddIndexElements(array);
             }
             catch (ArgumentException ex)
             {
@@ -176,12 +181,13 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void Reverse_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCase(new int[] { })]
+        [TestCase(null)]
+        public static void Reverse_WhenArrayIsEmpty_ShouldThrowException(int[] array)
         {
             try
             {
-                Reverse(new int[] { });
+                Reverse(array);
             }
             catch (ArgumentException ex)
             {
@@ -194,9 +200,10 @@ namespace UnitTests
 
         static object[] CalculateSumOddElementsSource = new[]
         {
-            new object[] { new[] {-9, 5, -4, 73, 19, 0, -98, 100}, 88 },
-            new object[] { new[] { 101, 5, 9, 73, 16, 100, 10, -178}, 188 },
+            new object[] { new[] { -9, 5, -4, 73, 19, 0, -98, 100 }, 88 },
+            new object[] { new[] { 101, 5, 9, 73, 16, 100, 10, -178 }, 188 },
             new object[] { new[] { -4, -9, -74, 0, -19, -1, -10, 3}, -26 },
+            new object[] { new int[] { }, 0}
         };
 
         [TestCaseSource(nameof(CalculateSumOddElementsSource))]
@@ -208,11 +215,11 @@ namespace UnitTests
         }
 
         [Test]
-        public static void CalculateSumOddElements_WhenArrayIsEmpty_ShouldThrowException()
+        public static void CalculateSumOddElements_WhenArrayIsNull_ShouldThrowException()
         {
             try
             {
-                CalculateSumOddElements(new int[] { });
+                CalculateSumOddElements(null);
             }
             catch (ArgumentException ex)
             {
@@ -227,10 +234,11 @@ namespace UnitTests
         static object[] SwapFirstAndSecondArrayPartsSource = new[]
         {
             new object[] { new[] { 1 }, new[] { 1 } },
-            new object[] { new[] { 1, 2 }, new[]  {2, 1} },
-            new object[] { new[] { 1, 2, 3 }, new[]  { 3,2,1 } },
-            new object[] { new[] { 1, 2, 3, 4, 5 }, new[]  {4, 5, 3, 1, 2} },
-            new object[] { new[] { 1, 2, 3, 4, 5, 6 }, new[]  { 4, 5, 6, 1, 2, 3 } }
+            new object[] { new[] { 1, 2 }, new[] { 2, 1 } },
+            new object[] { new[] { 1, 2, 3 }, new[] { 3, 2, 1 } },
+            new object[] { new[] { 1, 2, 3, 4, 5 }, new[] { 4, 5, 3, 1, 2 } },
+            new object[] { new[] { 1, 2, 3, 4, 5, 6 }, new[]  { 4, 5, 6, 1, 2, 3 } },
+            new object[] { new int[] { }, new int[]  { } }
         };
 
         [TestCaseSource(nameof(SwapFirstAndSecondArrayPartsSource))]
@@ -242,11 +250,11 @@ namespace UnitTests
         }
 
         [Test]
-        public static void SwapFirstAndSecondArrayParts_WhenArrayIsEmpty_ShouldThrowException()
+        public static void SwapFirstAndSecondArrayParts_WhenArrayIsNull_ShouldThrowException()
         {
             try
             {
-                SwapFirstAndSecondArrayParts(new int[] { });
+                SwapFirstAndSecondArrayParts(null);
             }
             catch (ArgumentException ex)
             {
@@ -272,12 +280,13 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void MakeSelectionSort_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCase(new int[] { })]
+        [TestCase(null)]
+        public static void MakeSelectionSort_WhenArrayIsEmpty_ShouldThrowException(int[] array)
         {
             try
             {
-                MakeSelectionSort(new int[] { });
+                MakeSelectionSort(array);
             }
             catch (ArgumentException ex)
             {
@@ -302,12 +311,13 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void MakeInsertSort_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCase(new int[] { })]
+        [TestCase(null)]
+        public static void MakeInsertSort_WhenArrayIsEmpty_ShouldThrowException(int[] array)
         {
             try
             {
-                MakeInsertSort(new int[] { });
+                MakeInsertSort(array);
             }
             catch (ArgumentException ex)
             {

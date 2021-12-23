@@ -87,7 +87,7 @@ namespace ClassLibrary
 
         public static int SumFromAToB(int a, int b)
         {
-            if (a < 0 || b < 0) 
+            if (a < 0 || b < 0)
             {
                 throw new ArgumentException("Incorrect number. Numbers should be more or equal 0");
             }
@@ -102,7 +102,7 @@ namespace ClassLibrary
             if (a % 7 != 0)
             {
                 a += 7 - a % 7;
-            }            
+            }
 
             for (int i = a; i <= b; i += 7)
             {
@@ -126,10 +126,10 @@ namespace ClassLibrary
             int n2 = 1;
             int n = 0;
 
-            if (position == 1 || position == 2) 
+            if (position == 1 || position == 2)
             {
                 return n1;
-            }            
+            }
 
             for (int i = 2; i < position; i++)
             {
@@ -332,7 +332,7 @@ namespace ClassLibrary
             }
 
             return listEvenNumbers;
-        }
+        } 
 
         public static bool ContainsSameDigit(int number1, int number2)
         {
@@ -340,26 +340,36 @@ namespace ClassLibrary
             int number2Abs = Math.Abs(number2);
             bool result = false;
 
-            while (number1Abs > 0 )
+            for (int i = 0; i < number1Abs.ToString().Length; i++)
             {
-                int tempNumber2 = number2Abs;
-                int remainder1 = number1Abs % 10;
+                int remainder = number1Abs % 10;
 
-                while (tempNumber2 > 0)
+                if (IsNumberContainDigit(number2Abs, remainder))
                 {
-                    int remainder2 = tempNumber2 % 10;
-
-                    if (remainder1 == remainder2)
-                    {
-                        result = true;
-                        break;
-                    }
-
-                    tempNumber2 /= 10;
+                    return true;
                 };
 
                 number1Abs /= 10;
-            };
+            }
+
+            return result;
+        }
+
+        private static bool IsNumberContainDigit(int number, int digit)
+        {
+            bool result = false;
+
+            for (int i = 0; i < number.ToString().Length; i++)
+            {
+                int remainder = number % 10;
+
+                if (remainder == digit)
+                {
+                    return true;
+                }
+
+                number /= 10;
+            }
 
             return result;
         }

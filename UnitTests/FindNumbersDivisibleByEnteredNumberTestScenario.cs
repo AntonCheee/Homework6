@@ -5,6 +5,7 @@ namespace UnitTests
 {
     public class FindNumbersDivisibleByEnteredNumberTestScenario : IEnumerable
     {
+        private const int MAX_VALUE = 1000;
         public IEnumerator GetEnumerator()
         {
             int devider;
@@ -14,9 +15,9 @@ namespace UnitTests
             for (int z = 0; z < 5; z++)
             {
                 devider = Math.Abs(arrayDeviders[z]);
-                array = new int[1000 / devider];
+                array = new int[MAX_VALUE / devider];
 
-                for (int i = devider, j = 0; i <= 1000; i += devider)
+                for (int i = devider, j = 0; i <= MAX_VALUE; i += devider)
                 {
                     array[j++] = i;
                 }

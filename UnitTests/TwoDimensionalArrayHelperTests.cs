@@ -21,12 +21,12 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void FindMinElement_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCaseSource(nameof(EmptyArraySource))]
+        public static void FindMinElement_WhenArrayIsEmpty_ShouldThrowException(int[,] array)
         {
             try
             {
-                FindMinElement(new int[,] { });
+                FindMinElement(array);
             }
             catch (ArgumentException ex)
             {
@@ -52,12 +52,12 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void FindMaxElement_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCaseSource(nameof(EmptyArraySource))]
+        public static void FindMaxElement_WhenArrayIsEmpty_ShouldThrowException(int[,] array)
         {
             try
             {
-                FindMaxElement(new int[,] { });
+                FindMaxElement(array);
             }
             catch (ArgumentException ex)
             {
@@ -83,12 +83,12 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void FindIndexMinElement_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCaseSource(nameof(EmptyArraySource))]
+        public static void FindIndexMinElement_WhenArrayIsEmpty_ShouldThrowException(int[,] array)
         {
             try
             {
-                FindIndexMinElement(new int[,] { });
+                FindIndexMinElement(array);
             }
             catch (ArgumentException ex)
             {
@@ -114,12 +114,12 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void FindIndexMaxElement_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCaseSource(nameof(EmptyArraySource))]
+        public static void FindIndexMaxElement_WhenArrayIsEmpty_ShouldThrowException(int[,] array)
         {
             try
             {
-                FindIndexMaxElement(new int[,] { });
+                FindIndexMaxElement(array);
             }
             catch (ArgumentException ex)
             {
@@ -147,12 +147,12 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void FindElementMoreThanAllNeighbor_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCaseSource(nameof(EmptyArraySource))]
+        public static void FindElementMoreThanAllNeighbor_WhenArrayIsEmpty_ShouldThrowException(int[,] array)
         {
             try
             {
-                FindElementMoreThanAllNeighbor(new int[,] { });
+                FindElementMoreThanAllNeighbor(array);
             }
             catch (ArgumentException ex)
             {
@@ -178,12 +178,12 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public static void ReflectElementsRelativeToDiagonal_WhenArrayIsEmpty_ShouldThrowException()
+        [TestCaseSource(nameof(EmptyArraySource))]
+        public static void ReflectElementsRelativeToDiagonal_WhenArrayIsEmpty_ShouldThrowException(int[,] array)
         {
             try
             {
-                ReflectElementsRelativeToDiagonal(new int[,] { });
+                ReflectElementsRelativeToDiagonal(array);
             }
             catch (ArgumentException ex)
             {
@@ -216,5 +216,11 @@ namespace UnitTests
 
             Assert.Fail("No throw exception");
         }
+
+        static object[] EmptyArraySource = new[]
+      {
+            new object[]{ new int[,] { } },
+            new object[]{ null }
+        };
     }
 }

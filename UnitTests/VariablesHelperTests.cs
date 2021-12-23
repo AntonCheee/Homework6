@@ -31,24 +31,30 @@ namespace UnitTests
             Assert.Fail("No throw exception");
         }
 
-        [Test]
-        public void SwapNumber_ShoudSwapNumbers()
+        [TestCase(3.5, 0.5)]
+        [TestCase(3.5, 3.5)]
+        [TestCase(3.5, null)]
+        [TestCase(0, 0)]
+        public void SwapNumber_ShoudSwapNumbers(double number1, double number2)
         {
-            double number1 = 3.5;
-            double number2 = 0.5;
+            double number1Temp = number1;
+            double number2Temp = number2;
 
             Swap(ref number1, ref number2);
 
-            Assert.AreEqual(0.5, number1);
-            Assert.AreEqual(3.5, number2);
+            Assert.AreEqual(number1Temp, number2);
+            Assert.AreEqual(number2Temp, number1);
         }
 
-        [Test]
-        public void Divide_WhenDivisorIsNotZero_ShouldDivide()
+        [TestCase(5, 2, 2.5)]
+        [TestCase(-1, 2, -0.5)]
+        [TestCase(10, -2, -5)]
+        [TestCase(0, 2, 0)]
+        public void Divide_WhenDivisorIsNotZero_ShouldDivide(int dividend, int divisor, double expectedResult)
         {
-            double result = Divide(5, 2);
+            double actualResult = Divide(dividend, divisor);
 
-            Assert.AreEqual(2.5, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [Test]
@@ -67,12 +73,17 @@ namespace UnitTests
             Assert.Fail("No throw exception");
         }
 
-        [Test]
-        public void GetRemainderOfDivision_WhenDivisorIsNotZero_ShouldCalculateRemainderOfDivision()
+        [TestCase(5, 2, 1)]
+        [TestCase(5, 5, 0)]
+        [TestCase(0, 2, 0)]
+        [TestCase(15, 10, 5)]
+        [TestCase(5, 10, 5)]
+        [TestCase(5, 1, 0)]
+        public void GetRemainderOfDivision_WhenDivisorIsNotZero_ShouldCalculateRemainderOfDivision(int dividend, int divisor, double expectedResult)
         {
-            double result = GetRemainderOfDivision(5, 2);
+            double actualResult = GetRemainderOfDivision(dividend, divisor);
 
-            Assert.AreEqual(1, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [Test]

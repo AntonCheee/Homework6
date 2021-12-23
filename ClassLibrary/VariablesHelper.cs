@@ -32,7 +32,7 @@ namespace ClassLibrary
 
         public static double Divide(int dividend, int divisor)
         {
-            if (divisor == 0) 
+            if (divisor == 0)
             {
                 throw new DivideByZeroException("Divisor is equal 0");
             }
