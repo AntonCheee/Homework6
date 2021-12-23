@@ -20,7 +20,7 @@ namespace ClassLibrary
 
         public static int FindIndexMaxElement(int[] array)
         {
-            if (array.Length == 0)
+            if (array == null || array.Length == 0 )
             {
                 throw new ArgumentException("Array is empty");
             }
@@ -40,7 +40,7 @@ namespace ClassLibrary
 
         public static int FindIndexMinElement(int[] array)
         {
-            if (array.Length == 0)
+            if (array == null || array.Length == 0 )
             {
                 throw new ArgumentException("Array is empty");
             }
@@ -60,7 +60,7 @@ namespace ClassLibrary
 
         public static int FindSumOddIndexElements(int[] array)
         {
-            if (array.Length == 0)
+            if (array == null || array.Length == 0 )
             {
                 throw new ArgumentException("Array is empty");
             }
@@ -77,7 +77,7 @@ namespace ClassLibrary
 
         public static int[] Reverse(int[] array)
         {
-            if (array.Length == 0)
+            if (array == null || array.Length == 0 )
             {
                 throw new ArgumentException("Array is empty");
             }
@@ -92,7 +92,7 @@ namespace ClassLibrary
 
         public static int CalculateSumOddElements(int[] array)
         {
-            if (array.Length == 0)
+            if (array == null)
             {
                 throw new ArgumentException("Array is empty");
             }
@@ -112,7 +112,7 @@ namespace ClassLibrary
 
         public static int[] SwapFirstAndSecondArrayParts(int[] array)
         {
-            if (array.Length == 0)
+            if (array == null)
             {
                 throw new ArgumentException("Array is empty");
             }
@@ -129,7 +129,7 @@ namespace ClassLibrary
 
         public static int[] MakeSelectionSort(int[] array)
         {
-            if (array.Length == 0)
+            if (array == null || array.Length == 0 )
             {
                 throw new ArgumentException("Array is empty");
             }
@@ -156,7 +156,7 @@ namespace ClassLibrary
 
         public static int[] MakeInsertSort(int[] array)
         {
-            if (array.Length == 0)
+            if (array == null || array.Length == 0 )
             {
                 throw new ArgumentException("Array is empty");
             }

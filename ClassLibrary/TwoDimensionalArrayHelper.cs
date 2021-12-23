@@ -20,7 +20,7 @@ namespace ClassLibrary
 
         public static (int, int) FindIndexMinElement(int[,] array)
         {
-            if (array.Length == 0)
+            if (array == null || array.Length == 0)
             {
                 throw new ArgumentException("Two-dimensional array is empty");
             }
@@ -43,7 +43,7 @@ namespace ClassLibrary
 
         public static (int, int) FindIndexMaxElement(int[,] array)
         {
-            if (array.Length == 0)
+            if (array == null || array.Length == 0 )
             {
                 throw new ArgumentException("Two-dimensional array is empty");
             }
@@ -67,7 +67,7 @@ namespace ClassLibrary
 
         public static int FindElementMoreThanAllNeighbor(int[,] array)
         {
-            if (array.Length == 0)
+            if (array == null || array.Length == 0 )
             {
                 throw new ArgumentException("Two-dimensional array is empty");
             }
@@ -104,7 +104,7 @@ namespace ClassLibrary
 
         public static int[,] ReflectElementsRelativeToDiagonal(int[,] array)
         {
-            if (array.Length == 0)
+            if (array == null || array.Length == 0 )
             {
                 throw new ArgumentException("Two-dimensional array is empty");
             }
